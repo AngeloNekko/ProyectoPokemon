@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>favoritos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="pokeiniciado">
+  <ion-card
+    class="carta"
+    *ngFor="let item of pokedato">
+    <img class="imagen" src="{{item.sprites.front_default}}" alt="" />
+    <ion-card-header>
+      <ion-card-subtitle class="numero">Nº: {{item.id}}</ion-card-subtitle>
+      <ion-card-title class="titulo">{{item.name}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content> </ion-card-content>
+    <ion-button
+      class="leer"
+      color="success"
+      [routerLink]="['/pokemon', item.id]"
+      >Leer mas</ion-button
+    >
+    <button mat-fab color="warn" (click)="deletePoke(item.firebase)">
+      <mat-icon>delete_outline</mat-icon>
+    </button>
+  </ion-card>
+</ion-content>

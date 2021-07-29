@@ -1,0 +1,53 @@
+.carta{
+    background: linear-gradient(70deg, rgba(184, 182, 182, 0.541), white);
+}
+
+.numero{
+    font-size: medium;
+}
+
+.titulo{
+    text-transform: capitalize;
+}
+.GranTitulo{
+    text-align: center;
+    font-size:medium;
+    font-weight: bold;
+    position: float;
+}
+.favorito{
+    margin-left: 3%;
+}
+.imagen{
+    width: 150px;
+}
+.leer{
+    margin-left:35%;
+    margin-top: 5%;
+
+}
+.favorito{
+    width: 35%;
+}
+.TituloCont{
+    font-size: medium;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 4%;
+}
+.stack{
+    font-size: small;
+    font-weight: bold;
+    text-align: center;
+}
+.IVS{
+    font-size: medium;
+    margin-left: 3%;
+    margin-top: 4%;
+    text-align: center;
+}
+.dato{
+    width: 35%;
+    border: 5px;
+    background-color: rgb(255, 255, 255);
+}

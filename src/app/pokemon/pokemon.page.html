@@ -1,0 +1,99 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{pokeselect.name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content *ngIf="pokeiniciado">
+  <ion-card class="carta">
+    <ion-card-title class="TituloCont">Forma Normal</ion-card-title>
+    <img class="imagen" src="{{pokeselect.sprites.front_default}}" alt="" />
+    <img class="imagen" src="{{pokeselect.sprites.back_default}}" alt="" />
+    <ion-card-header>
+      <ion-card-subtitle class="numero"
+        >Nº: {{pokeselect.id}}</ion-card-subtitle
+      >
+      <ion-card-title class="titulo">{{pokeselect.name}}</ion-card-title>
+      <ion-card-title class="TituloCont">Forma shiny</ion-card-title>
+      <img class="imagen" src="{{pokeselect.sprites.front_shiny}}" alt="" />
+    <img class="imagen" src="{{pokeselect.sprites.back_shiny}}" alt="" />
+    </ion-card-header>
+    <ion-card-content> 
+    </ion-card-content>
+  </ion-card>
+  <ion-card class="carta">
+    <ion-card-title class="TituloCont">Stacks Base</ion-card-title>
+    <ion-card-subtitle class="stack">Vida: {{pokeselect.stats[0].base_stat}}</ion-card-subtitle>
+    <ion-card-subtitle class="stack">Ataque: {{pokeselect.stats[1].base_stat}}</ion-card-subtitle>
+    <ion-card-subtitle class="stack">Defensa: {{pokeselect.stats[2].base_stat}}</ion-card-subtitle>
+    <ion-card-subtitle class="stack">Esp Ataque: {{pokeselect.stats[3].base_stat}}</ion-card-subtitle>
+    <ion-card-subtitle class="stack">Esp Defensa: {{pokeselect.stats[4].base_stat}}</ion-card-subtitle>
+    <ion-card-subtitle class="stack">Velocidad: {{pokeselect.stats[5].base_stat}}</ion-card-subtitle>
+  </ion-card>
+  <ion-card class="carta">
+    <ion-card-title class="TituloCont">Tipo</ion-card-title>
+    <ion-card-subtitle class="stack">{{pokeselect.types[0].type.name}}</ion-card-subtitle>
+    <ion-card-subtitle class="stack">{{pokeselect.types[1].type.name}}</ion-card-subtitle>
+  </ion-card>
+  <ion-card class="carta">
+    <ion-card-title class="TituloCont">Crea tu {{pokeselect.name}}</ion-card-title>
+    <form>
+      <div class="IVS">
+        Vida: <input placeholder="Ivs de Vida" type="number" value=0 class="dato" [(ngModel)]="ivVida" name="ivVida" min="0" max="31" minLength="1" maxlength="2" required="required">
+      </div>
+      <div class="IVS">
+        Ataque: <input placeholder="Ivs de Ataque" type="number" value=0 class="dato" [(ngModel)]="ivdataque" name="ivdataque" min="0" max="31" minLength="1" maxlength="2" required="required">
+      </div>
+      <div class="IVS">
+        Defensa : <input placeholder="Ivs de Defensa" type="number" value=0 class="dato" [(ngModel)]="ivdefensa" name="ivdefensa" min="0" max="31" minLength="1" maxlength="2" required="required">
+      </div>
+      <div class="IVS">
+        Ataque.Esp: <input placeholder="Ivs de Ataque.Esp" type="number" value=0 class="dato" [(ngModel)]="ivdataqueEsp" name="ivdataqueEsp" min="0" max="31" minLength="1" maxlength="2" required="required">
+      </div>
+      <div class="IVS">
+        Defensa.Esp: <input placeholder="Ivs de Defensa.Esp" type="number"  value=0 class="dato" [(ngModel)]="ivdefensaEsp" name="ivdefensaEsp" min="0" max="31" minLength="1" maxlength="2" required="required">
+      </div>
+      <div class="IVS">
+        Velocidad: <input placeholder="Ivs de Velocidad" type="number" value=0 class="dato" [(ngModel)]="ivvelocidad" name="ivvelocidad" min="0" max="31" minLength="1" maxlength="2" required="required">
+      </div>
+      <ion-button
+      *ngIf="calu"
+      class="leer"
+      color="success"
+      (click)="calculo()">Calcular</ion-button
+    >
+    <ion-button *ngIf="borrar"
+      class="leer"
+      color="success"
+      (click)="delet()">Borrar</ion-button
+    >
+    </form>
+    <ion-card *ngIf="load">
+      <ion-card-title class="titulo">Tu {{pokeselect.name}}</ion-card-title>
+      <img class="imagen" src="{{pokeselect.sprites.front_default}}" alt="" />
+    <img class="imagen" src="{{pokeselect.sprites.back_default}}" alt="" />
+    <ion-card-title class="TituloCont">Ataques beneficiosos para tu pokemon</ion-card-title>
+    </ion-card>
+  <ion-card *ngIf="der1">
+    <ion-card-subtitle class="stack">{{pokeselect.moves[15].move.name}}</ion-card-subtitle>
+    <ion-card-subtitle class="stack">{{pokeselect.moves[10].move.name}}</ion-card-subtitle>
+    <ion-card-subtitle class="stack">{{pokeselect.moves[2].move.name}}</ion-card-subtitle>
+    <ion-card-subtitle class="stack">{{pokeselect.moves[20].move.name}}</ion-card-subtitle>
+    <ion-card-subtitle  class="stack">{{pokeselect.moves[6].move.name}}</ion-card-subtitle>
+   </ion-card> 
+   <ion-card *ngIf="der2">
+    <ion-card-subtitle class="stack">{{pokeselect.moves[5].move.name}}</ion-card-subtitle>
+    <ion-card-subtitle class="stack">{{pokeselect.moves[25].move.name}}</ion-card-subtitle>
+    <ion-card-subtitle class="stack">{{pokeselect.moves[9].move.name}}</ion-card-subtitle>
+    <ion-card-subtitle class="stack">{{pokeselect.moves[14].move.name}}</ion-card-subtitle>
+    <ion-card-subtitle  class="stack">{{pokeselect.moves[6].move.name}}</ion-card-subtitle>
+    <ion-card-subtitle *ngIf="der6" class="stack">{{pokeselect.moves[4].move.name}}</ion-card-subtitle>
+   </ion-card> 
+   <ion-card *ngIf="der3">
+    <ion-card-subtitle class="stack">{{pokeselect.moves[25].move.name}}</ion-card-subtitle>
+    <ion-card-subtitle class="stack">{{pokeselect.moves[17].move.name}}</ion-card-subtitle>
+    <ion-card-subtitle class="stack">{{pokeselect.moves[28].move.name}}</ion-card-subtitle>
+    <ion-card-subtitle class="stack">{{pokeselect.moves[9].move.name}}</ion-card-subtitle>
+    <ion-card-subtitle  class="stack">{{pokeselect.moves[2].move.name}}</ion-card-subtitle>
+   </ion-card> 
+  </ion-card>
+</ion-content>

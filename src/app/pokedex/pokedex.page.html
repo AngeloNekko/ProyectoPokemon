@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="GranTitulo">Pokedex</ion-title>
+  </ion-toolbar>
+</ion-header>
+<div class="Buscartitulo">
+  Buscar tu pokemon Favorito
+</div>
+<form>
+  <div>
+    <input class="buscar" [(ngModel)]="search" name="search" placeholder="Busca tu pokemon" />
+  </div>
+</form>
+<ion-content *ngIf="poke1">
+  <ion-card
+    class="carta"
+    *ngFor="let item of poke1 | DBD:search">
+    <img class="imagen" src="{{item.sprites.front_default}}" alt="" />
+    <mat-spinner *ngIf="spinner"></mat-spinner>
+    <ion-card-header>
+      <ion-card-subtitle class="numero">Nº: {{item.id}}</ion-card-subtitle>
+      <ion-card-title class="titulo">{{item.name}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content> </ion-card-content>
+    <ion-button
+      class="leer"
+      color="success"
+      [routerLink]="['/pokemon', item.id]"
+      >Leer mas</ion-button
+    >
+    <button mat-fab color="warn" (click)="putPoke(item.id)">
+      <mat-icon>favorite</mat-icon>
+    </button>
+  </ion-card>
+</ion-content>

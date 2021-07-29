@@ -1,0 +1,54 @@
+
+.carta{
+    background: linear-gradient(70deg, rgba(184, 182, 182, 0.541), white);
+    width: 300px;
+    height: 500px;
+    position: relative;
+    margin-left: 8%;
+}
+
+.numero{
+    font-size: medium;
+}
+
+.titulo{
+    text-transform: capitalize;
+}
+.GranTitulo{
+    text-align: center;
+    font-size:medium;
+    font-weight: bold;
+    position: float;
+}
+.favorito{
+    margin-left: 3%;
+}
+.imagen{
+    width: 300px;
+}
+.leer{
+    margin-left:20%;
+    margin-top: -20%;
+
+}
+.favorito{
+    margin-left:45%;
+    margin-top: -35%;
+}
+.buscar{
+    border-radius: 5px;
+    background-color: rgba(221, 238, 255, 0.678);
+    height: 35%;
+    width: 65%;
+    font-size: medium;
+    margin-left: 20%;
+}
+.Buscartitulo{
+    font-size: x-large;
+    text-align: center;
+    margin-top: 4%;
+    margin-bottom: 5%;
+}
+.my-custom-class {
+    --background: #e5e5e5;
+  }
